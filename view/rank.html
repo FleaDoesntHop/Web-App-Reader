@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/all.css"/>
+    <link rel="stylesheet" href="/static/css/book-page.css">
+    <title>排行榜</title>
+    <style>
+        .channel-group__list {
+            background: #fff;
+        }
+        .channel-group__list>li {
+            padding: 10px 0 5px 17px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .list-book__title:first-child {
+            margin-top: 5px;
+        }
+        .list-book__title>span {
+            margin-right: 10px;
+            color: rgba(0,0,0,.4);
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="index-container">
+    <% include include/common-header.html %>
+    <div class="index-container-wrapper">
+        <div class="index-container">
+            <div class="index-container__scroll">
+                <ul class="channel-group__list">
+                    <li v-for="item in items" v-if="$index>18">
+                        <a href="/book?id={{book.fiction_id}}">
+                            <div class="list-book">
+                                <div class="list-book__cover">
+                                    <img alt="{{item.title}}" v-bind:src="item.cover">
+                                </div>
+                                <div class="list-book__info" v-for="book in item.description">
+                                    <a href="/book?id={{book.fiction_id}}">
+                                        <p class="list-book__title"><span>{{$index + 1}}</span>{{book}}</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/rank.js"></script>
+</body>
+</html>

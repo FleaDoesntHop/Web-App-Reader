@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>男生频道</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/all.css">
+    <link rel="stylesheet" href="/static/css/book-page.css">
+    <style>
+        .channel-group>li {
+            border-bottom: 10px solid #f0f0f0;
+        }
+        .channel-group__list>li {
+            padding: 10px 0 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+<div id="app" style="width: {{screen_width}}px; overflow: hidden" class="index-container">
+    <% include include/common-header.html %>
+    <div class="index-container-wrapper">
+        <div class="index-container">
+            <div class="index-container__scroll">
+                <ul class="channel-group">
+                    <li v-for="item in items">
+                        <div class="channel-group__header">
+                            <h2 class="channel-group__title">{{item.ad_name}}</h2>
+                        </div>
+                        <ul class="channel-group__list">
+                            <li v-for="book in item.data.data">
+                                <a href="/book?id={{book.fiction_id}}">
+                                    <div class="list-book">
+                                        <div class="list-book__cover">
+                                            <img alt="{{book.title}}" v-bind:src="book.cover">
+                                            <p class="list-book__state">完结</p>
+                                        </div>
+                                        <div class="list-book__info">
+                                            <p class="list-book__title">{{book.title}}</p>
+                                            <p class="list-book__summary">{{book.summary}}</p>
+                                            <p class="list-book__author">{{book.authors}}</p>
+                                            <div class="list-book__wrap">
+                                                <p class="list-book__tag"  v-for="tag in book.tags">{{tag}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/channel.js"></script>
+</html>

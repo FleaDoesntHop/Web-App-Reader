@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>阅读器App</title>
+
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/reader.css">
+</head>
+<body>
+<div id="root" class="container">
+    <div class="m-article-action">
+        <div class="article-action-mid" id="article_action_mid"></div>
+    </div>
+    <a href="/book?id=123" id="top_nav" class="top-nav" style="display: none">
+        <div class="icon-go-back"></div>
+        <div class="nav-title">返回书架</div>
+    </a>
+    <div class="bottom_nav bottom-nav-bg" style="display: none"></div>
+    <div class="bottom_nav bottom-nav" style="display: none">
+        <div class="flex-row book-categories"><i></i><span>目录</span></div>
+        <div id="icon_font_btn" class="flex-row icon-font"><i></i><span>字体</span></div>
+        <div class="flex-row" id="daytime_switch_btn">
+            <div id="icon_daytime_night" class="icon-daytime-night"><i></i><span>夜间</span></div>
+            <div id="icon_daytime_day" class="icon-daytime-day" style="display: none"><i></i><span>白天</span></div>
+        </div>
+    </div>
+    <div class="bg-color-panel custom_font" style="display: none"></div>
+    <div class="custom-font-container custom_font" id="custom_font_container" style="display: none">
+        <div class="child-mod">
+            <span>字号：</span>
+            <button id="lg_font_btn">大</button>
+            <button id="sm_font_btn">小</button>
+        </div>
+        <div class="child-mod">
+            <span>背景：</span>
+            <div class="bg-color-container">
+                <div class="bg-color-current"></div>
+            </div>
+            <div class="bg-color-container">
+                <div class="bg-color-current"></div>
+            </div>
+            <div class="bg-color-container">
+                <div class="bg-color-current"></div>
+            </div>
+            <div class="bg-color-container">
+                <div class="bg-color-current"></div>
+            </div>
+            <div class="bg-color-container">
+                <div class="bg-color-current"></div>
+            </div>
+        </div>
+    </div>
+    <div id="fiction_chapter_title"></div>
+    <div id="fiction_container" class="fiction-chapter-content">
+
+    </div>
+    <div class="fiction-button-bar">
+        <ul class="turn-page-tab">
+            <li id="prev_button">上一章</li>
+            <li id="next_button">下一章</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<script src="/static/script/zepto.js"></script>
+<script type="text/javascript">
+    window.jQuery = $;
+</script>
+<script src="/static/script/jquery.base64.js"></script>
+<script src="/static/script/jquery.jsonp.js"></script>
+<script src="/static/script/reader.js"></script>
+</body>
+</html>
