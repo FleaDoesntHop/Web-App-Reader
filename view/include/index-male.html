@@ -1,0 +1,35 @@
+<section class="index-recommend">
+    <div class="index-recommend__header">
+        <p class="index-recommend__title">
+            男生最爱
+        </p>
+    </div>
+    <div>
+        <div>
+            <ul class="index-recommend__list">
+                <li v-for="item in male" v-if="$index > -1 && $index < 5">
+                    <a href="/book?id={{item.fiction_id}}">
+                        <div class="list-book">
+                            <div class="list-book__cover">
+                                <img v-bind:src="item.cover" alt="{{item.title}}">
+                                <p class="list-book__state">完结</p>
+                            </div>
+                            <div class="list-book__info">
+                                <p class="list-book__title">{{item.title}}</p>
+                                <p class="list-book__author">{{item.authors}}</p>
+                                <p class="list-book__summary">{{item.summary}}</p>
+                                <div class="list-book__wrap">
+                                    <p class="list-book__tag" v-for="tag in item.tags">{{tag}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="index-recommend__footer_next">
+            <a href="javascript:">换一换</a>
+            <a href="/channel/male">男生频道</a>
+        </div>
+    </div>
+</section>
