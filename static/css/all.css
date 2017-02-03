@@ -1,0 +1,449 @@
+/**** index.html ****/
+body, html {
+    height: 100%;
+}
+.index-container-wrapper {
+    height: 100%;
+}
+/*通过外容器溢出隐藏、内容器溢出滚动，实现页面顶部“书城/书架”导航栏吸顶的效果。不使用position: fixed的原因为移动端浏览器通过fixed实现吸顶效果的性能很差*/
+.index-container {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.index-container__scroll {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 100;
+}
+
+/**** header.html ****/
+/*顶部“书城/书架”导航栏样式及动画效果*/
+.header-tab {
+    padding: 0 90px;
+    text-align: center;
+    line-height: 44px;
+    background: #efeff0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+.header-tab i {
+    bottom: -1px;
+    position: absolute;
+    left: 0;
+    -webkit-transition: -webkit-transform .3s ease-out;
+}
+.header-tab i:before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 34px;
+    margin: 0 auto;
+    background: #777;
+}
+.header-tab a:before {
+    content: '\4e66\67b6';
+    display: block;
+    margin: 0 auto;
+    width: 2em;
+}
+.header-tab a:first-child:before{
+    content: '\4e66\57ce';
+}
+.header-tab .header-user {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    background: url(/static/img/header-user.png) no-repeat center center;
+    background-size: 16px;
+}
+.header-tab .header-check-in {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    background: url(/static/img/header-check-in.png) no-repeat center center;
+    background-size: 22px;
+}
+.swipe-tab {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.swipe-tab a {
+    float: left;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.swipe-tab_2 a {
+    width: 50%;
+}
+.swipe-tab__on {
+    color: #ff6600;
+}
+.clear-fix:after {
+    content: '';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+}
+
+/**** index-top.html ****/
+/*顶部搜索栏、活动页、分类导航*/
+.index-top {
+    background: #fff;
+    border-bottom: 10px solid #f5f5f5;
+    padding-top: 5px;
+    z-index: 1;
+    width: 100%;
+}
+.index-top__search {
+    margin: 10px 13px;
+    padding: 1px 0 0 30px;
+    font: 11px/33px a;
+    color: rgba(0, 0, 0, .4);
+    background: url(/static/img/search-icon.png) no-repeat 8px center;
+    background-size: 14px;
+    border: 1px solid #f5f5f5;
+    border-radius: 2px;
+}
+.index-top__search-cover {
+    width: 100%;
+}
+.index-top__btn {
+    margin: 14px 0 4px;
+    display: flex;
+    width: 100%;
+}
+.index-top__btn li {
+    line-height: 2.4;
+    font-size: 12px;
+    text-align: center;
+    flex: 1 1 auto;
+}
+.index-top__icon {
+    display: block;
+    margin: 0 auto;
+    height: 22px;
+    width: 22px;
+    background-position: center;
+}
+
+/**** index-recommend.html ****/
+/*重磅推荐模块*/
+.index-recommend {
+    background: #fff;
+    border-bottom: 10px solid #f5f5f5;
+    position: relative;
+}
+.index-recommend__header {
+    padding: 15px 13px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+}
+.index-recommend__title {
+    position: relative;
+    font: bold 13px/13px a;
+    color: rgba(0,0,0,0.9);
+}
+.index-recommend__title>i {
+    position: absolute;
+    margin:-1px 0 0 5px;
+    padding: 3px 5px 0 5px;
+    font: 9px/9px a;
+    color: #fff;
+    background: #53ac7d;
+    border-radius: 1px;
+}
+.tab {
+    position: absolute;
+    right: 13px;
+    top: 9px;
+}
+.tab a {
+    position: relative;
+    padding: 16px 7px;
+    font: 12px/12px a;
+    color: #999;
+}
+.tab a:not(:last-child):after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    bottom: 15px;
+    right: 0;
+    width: 1px;
+    border-right: 1px solid #ccc;
+}
+.tab a:last-child {
+    padding-left: 3px;
+}
+.tab__on {
+    color: #528ae8 !important;
+}
+.index-recommend__list {
+    padding: 0 13px;
+}
+.index-recommend__list li {
+    padding: 17px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.index-recommend__list li:last-child {
+    border: none;
+}
+.list-book {
+    overflow: hidden;
+}
+.list-book__cover {
+    float: left;
+    position: relative;
+    width: 85px;
+    height: 113px;
+    background-color: #eeece9;
+    border: 1px solid #f0f0f0;
+    border-radius: 1px;
+    overflow: hidden;
+}
+.list-book__cover img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1px;
+}
+.list-book__state {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    padding: 25px 7px 6px;
+    font: 10px/10px a;
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,.3));
+}
+.list-book .list-book__info {
+    margin-left: 100px;
+    padding-top: 6px;
+    background: #fff;
+}
+.list-book__title {
+    margin-bottom: 4px;
+    font: 16px/17px a;
+    color: rgba(0,0,0,.9);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list-book__author {
+    margin-top: 8px;
+    font: 12px/12px a;
+    color: rgba(0,0,0,.7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list-book__summary {
+    margin: 8px 0 0;
+    height: 2.8em;
+    font: 12px/1.4em a;
+    color: rgba(0,0,0,.6);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.list-book__wrap {
+    margin: 10px;
+    padding-top: 3px;
+    overflow: hidden;
+}
+.list-book__tag {
+    float: left;
+    margin: -3px 7px 7px 0;
+    padding: 3px 6px 2px;
+    max-width: 6em;
+    font: 10px/11px a;
+    color: #53ac7d;
+    border: 1px solid #53ac7d;
+    border-radius: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list-book__tag:last-child {
+    margin-right: 0;
+}
+.list-book__no-img__order {
+    float: left;
+    margin-top: 1px;
+    font: 13px/13px a;
+    color: rgba(237, 83, 15, .9);
+}
+.list-book__no-img__info {
+    margin-left: 27px;
+}
+.list-book__no-img__title {
+    font: 15px/15px a;
+    color: rgba(0,0,0,.9);
+    background: #fff;
+}
+
+/**** index-male.html ****/
+/*男生频道页*/
+.index-recommend__footer_next {
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+.index-recommend__footer_next>a {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 14px;
+    font: 13px/1.3em a;
+    color: rgba(0,0,0,.9);
+    text-align: center;
+}
+.index-recommend__footer_next>a:first-child {
+    border-right: 1px solid #f0f0f0;
+}
+
+/*****  index-free.html *****/
+/*免费阅读页*/
+.channel-group {
+    position: relative;
+    background: #fff;
+    border-bottom: 10px solid #f5f5f5;
+}
+.channel-group__header {
+    position: relative;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 6px solid #ffab18;
+}
+.channel-group__title {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+}
+.book-table{
+    padding: 13px 14px 5px;
+    font-size: 0;
+}
+.book-table li {
+    width: 33.3%;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.u-book {
+    width: 86px;
+    position: relative;
+    overflow: hidden;
+}
+.book-cover {
+    position: relative;
+    width: 86px;
+    height: 113px;
+    background: #eeece9;
+    box-shadow: 0 6px 5px -3px #aaa;
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+    border-bottom: none;
+}
+.book-cover img {
+    width: 100%;
+    height: 100%;
+}
+.book-info {
+    padding-top: 8px;
+}
+.book-info .title {
+    font-size: 13px;
+    line-height: 1.4em;
+    max-height: 2.8em;
+    overflow: hidden;
+    color: #8d8d8d;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+.u-tagRT {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1.4;
+    background-color: #ef6c2c;
+    color: #fff;
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: center;
+    -webkit-transform-origin: top center;
+    -webkit-transform: translateX(50%) rotate(45deg) translateY(50%) scale(0.8);
+    transform-origin: top center;
+    transform: translateX(50%) rotate(45deg) translateY(50%) scale(0.6);
+}
+.u-tagRT.-freefiction {
+    background-color: #49ab3f;
+}
+.u-tagRT.-freefiction:before {
+    content: '\9650\514d';
+}
+.channel-group__footer {
+    display: block;
+    border-top: 1px solid #f0f0f0;
+    text-align: center;
+    font-size: 14px;
+    padding: 19px 0;
+}
+
+/****  index-bottom.html ****/
+/*底部话题栏*/
+.index-bottom {
+    background: #fff;
+    border-bottom: 10px solid #f5f5f5;
+}
+.index-bottom__banner {
+    padding: 16px;
+    display: flex;
+}
+.index-bottom__banner>li {
+    flex: 1 1 auto;
+}
+.index-bottom__banner>li:not(:last-of-type) {
+    margin-right: 5px;
+}
+
+.index-bottom__banner>li img {
+    width: 100%;
+    height: 100%;
+}
+
+/***** index-shelf.html *****/
+/*书架部分*/
+.shelf .book-list {
+    background: #fff;
+    position: relative;
+}
+.shelf .book-list>li {
+    border-bottom: 1px solid #f0f0f0;
+}
+.shelf .book-list .u-book{
+    padding:13px 20px;
+    width: auto;
+}
+.u-book .book-cover {
+    float: left;
+    margin-right: 10px;
+}
+.u-book .info {
+    padding-top: 1.2em;
+}
